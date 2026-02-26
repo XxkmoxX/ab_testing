@@ -1,4 +1,4 @@
-# AB Testing
+# A/B Testing
 
 A practical collection of **A/B Testing**, **Causal Inference**, and **Bayesian Experimentation** notebooks, covering both classic statistical methods and industry-specific applications — e-commerce and O&G examples.
 
