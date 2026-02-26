@@ -1,6 +1,6 @@
 # AB Testing
 
-A practical collection of **A/B Testing**, **Causal Inference**, and **Bayesian Experimentation** notebooks, covering both classic statistical methods and industry-specific applications — from e-commerce to oil & gas.
+A practical collection of **A/B Testing**, **Causal Inference**, and **Bayesian Experimentation** notebooks, covering both classic statistical methods and industry-specific applications — e-commerce and O&G examples.
 
 ---
 
@@ -20,7 +20,7 @@ ab_testing/
 
 ---
 
-## 🧪 Notebooks
+## Notebooks
 
 ### 0 — Experimento A: Flight Checkout Upselling A/B Test
 **Method:** Classic Frequentist A/B Testing
@@ -37,7 +37,7 @@ ab_testing/
 ---
 
 ### 1 — Experimento B: Geographic A/B Testing — Geo Testing
-**Method:** Synthetic Control / Bayesian Structural Time Series (`CausalImpact` — Google)
+**Method:** Synthetic Control / Bayesian Structural Time Series (`CausalImpact` library)
 
 **Scenario:** Tests whether changing the hotel ranking algorithm from *Most Popular* to *Best Price* increases total sales. Randomization by user is not possible due to inventory interference, so a geographic experiment is designed.
 
@@ -47,7 +47,7 @@ ab_testing/
 - **Synthetic data:** Daily sales time series with weekly seasonality and linear trend. Treatment introduces a simulated +15% lift from day 70.
 - **Validation:** Pre-period correlation > 0.9 between control cities and Mendoza; R² validation via Linear Regression (scikit-learn).
 - **Model:** Bayesian regression using control cities as covariates to estimate the counterfactual (what Mendoza *would have sold* without the change).
-- **Result:** +17.04% lift, 95% credibility interval [15.4%, 18.6%], p ≈ 0. **Recommendation: full rollout.**
+- **Result:** +17.04% lift, 95% credibility interval [15.4%, 18.6%], p ≈ 0. **Recommendation: full Roll-Out.**
 
 ---
 
@@ -69,7 +69,7 @@ ab_testing/
 10. Feature Distributions & Outlier Detection — log1p transform candidates
 11. Key Insights & Recommendations
 
-**Key finding:** All linear correlations with `hotel_cluster` are below 0.04 → **Recommended models: LightGBM / XGBoost / CatBoost**. Evaluation metric: **MAP@5**.
+**Key finding:** All linear correlations with `hotel_cluster` are below 0.04 → **Recommended models: LightGBM / XGBoost / CatBoost**. Evaluation metric: **MAP@5:** ***Mean Average Precision at 5*** measures how well a model ranks the correct answer within the top 5 predictions..
 
 ---
 
@@ -92,7 +92,7 @@ ab_testing/
 
 ---
 
-## 🔬 Bayesian Approach
+## Bayesian Approach
 
 ### 4 — Bootstrap Confidence Intervals for Ratio Metrics
 **Method:** Vectorized Bootstrap (10,000 iterations)
@@ -103,11 +103,11 @@ ab_testing/
 - **Synthetic data:** 5,000 users per group. Clicks: Poisson(λ=2.0 / 2.1). Revenue: Log-Normal.
 - **Bootstrap approach:** Generates a (10,000 × 5,000) resampling matrix to compute the full distribution of the lift.
 - **Result:** Lift = **+5.94%** | 95% CI: **[+3.23%, +8.73%]** | p ≈ 0.0000
-- **Decision:** CI does not cross 0% → Treatment B is statistically superior. ✅
+- **Decision:** CI does not cross 0% → Treatment B is statistically superior. 
 
 ---
 
-### frac_stages — Hydraulic Fracturing Stage Spacing A/B Test (Vaca Muerta)
+### Hydraulic Fracturing Stage Spacing A/B Test (Vaca Muerta)
 **Method:** Bayesian Inference with t-Student Posteriors  
 **Domain:** Oil & Gas — Unconventional Reservoir Engineering
 
@@ -125,7 +125,7 @@ ab_testing/
 
 ---
 
-### geothermal — Geothermal Reservoir Bayesian Risk Analysis
+### Geothermal Reservoir Bayesian Risk Analysis
 **Method:** Multivariate Bayesian Analysis with Informative Priors  
 **Domain:** Geothermal Engineering — Thermo-Hydraulic Optimization
 
@@ -140,7 +140,7 @@ ab_testing/
 
 ---
 
-## ⚙️ Stack
+## Stack
 
 | Library | Usage |
 |---|---|
@@ -152,7 +152,7 @@ ab_testing/
 
 ---
 
-## 📌 Notes
+## Notes
 
 - The Expedia dataset CSV files (`train.csv`, `test.csv`, `destinations.csv`, `sample_submission.csv`) are **excluded** from this repository due to their large size (up to 3.8 GB). Download them from [Kaggle](https://www.kaggle.com/c/expedia-hotel-recommendations/data).
 - All experiments use **synthetic data** unless stated otherwise, designed to replicate realistic OTA, O&G and geothermal scenarios.
