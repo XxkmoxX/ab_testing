@@ -31,7 +31,7 @@ ab_testing/
 - **Control (A):** Standard checkout flow.
 - **Treatment (B):** Aggressive luggage upsell before payment.
 - **Synthetic data:** 100,000 users, Bernoulli conversion simulation (A: 5.1%, B: 4.9%), log-normal revenue with realistic noise (negative values, corporate outliers).
-- **Key steps:** Data cleaning, outlier treatment (Winsorizing at P99), metric calculation (Traffic, Conversion Rate, Revenue Per User, Total Revenue).
+- **Key steps:** Data cleaning, outlier treatment, metric calculation (Traffic, Conversion Rate, Revenue Per User, Total Revenue).
 - **Metrics:** Conversion Rate, RPU (Revenue Per User), Total Revenue by variant.
 
 ---
